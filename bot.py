@@ -1,5 +1,5 @@
 import telebot
-bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
+bot=telebot.TeleBot()
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text == "Привет":
