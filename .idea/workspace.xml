@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Добавил Акции">
-      <change afterPath="$PROJECT_DIR$/ job_description/Бармен.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ job_description/Оператор" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ job_description/Оффициант.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ job_description/Старший бармен.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coupon_promocode_draw_certificate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discount.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/job_description.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/birthday_prom.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discount.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/promo_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/promo_code.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/черновик" beforeDir="false" />
-    </list>
+    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Перед развёрткой на сервере" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672247328153</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Перед развёрткой на сервере">
+      <created>1673380148609</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673380148609</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,7 +133,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Пробовал коммитить" />
     <MESSAGE value="Бот начинается" />
-    <option name="LAST_COMMIT_MESSAGE" value="Бот начинается" />
+    <MESSAGE value="Перед развёрткой на сервере" />
+    <option name="LAST_COMMIT_MESSAGE" value="Перед развёрткой на сервере" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
