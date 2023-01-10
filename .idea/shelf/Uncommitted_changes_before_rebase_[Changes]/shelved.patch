@@ -1,0 +1,660 @@
+Index: promo_code.txt
+===================================================================
+diff --git a/promo_code.txt b/promo_code.txt
+deleted file mode 100644
+--- a/promo_code.txt	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ /dev/null	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
+@@ -1,56 +0,0 @@
+-КАКТУС
+-БАЙРАМОВЫ15
+-КОЛОРИСТ
+-АРЦИМЕНЯ
+-ШЕЙНА
+-БАРСУЧОК
+-САКОВИЧ15
+-СИНЕМАРУМ
+-СЮРПРИЗ
+-КЭР
+-ВОЛК
+-ТЯЖЁЛЫЙ ГОД
+-ЭРНЕСТ
+-ГЛУШАКОВА
+-БОГДАН
+-АЖУР
+-РАДОМСКАЯ
+-СЕМЕНОВИЧ
+-ТЕРЕХОВА
+-ПИНЬЯТА
+-КАДЫКО
+-КЕРАТИН
+-ВЕЛИЧКО
+-ВЕРСУС
+-СУИРТИ
+-ЛОПУХ
+-МАРИНА13
+-НАПАРНИКИ
+-РУДМАН
+-АНАНЬКО
+-САРАФАН
+-ФОТО1704
+-ГЕЛЯ
+-СЕМЬЯ
+-ВЛАДИК
+-ГУРИН
+-САХАРОК
+-БОГДАН
+-ТЯНКА
+-САС
+-МЕКЛЕР
+-КОБРИН
+-ШАЛИК
+-КАДР
+-КУЧЕРЯХА
+-ВАЙБ
+-ВИЗАЖ
+-ПОЗИТИВ
+-ХВОЯ
+-ЛЕДИДИ
+-ТУДЭЙ
+-ОНЛАЙН
+-МЯЧИКОВ
+-ГОВОР
+-ЗАЛИПАЙ
+-СНИКЕРС
+\ No newline at end of file
+Index: discount.txt
+===================================================================
+diff --git a/discount.txt b/discount.txt
+deleted file mode 100644
+--- a/discount.txt	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ /dev/null	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
+@@ -1,11 +0,0 @@
+-СКИДКА на заказ: ЗАКАЗ от 50 руб – 5%, ЗАКАЗ от 100 руб – 10%. Используйте их, когда человек делает заказ на соответствующую сумму (как обычно исключая все акции). Действует на доставку, вынос, зал и драйв.
+-СКИДКА 100%: Урегулирование Конфликтов
+-СКИДКА «День семьи»: Воскресенье — семейный день, скидка 10% на все меню, только на месте.
+-СКИДКА многодетным 10%: Все дни с 11 до 24. Необходимо предъявить документ клиенту.
+-СКИДКА в инстаграме: Скидки людей из Инстаграма, в таблице будут только названия профилей. Эти скидки оформлять на отдельный промокод "Инстаграм", который даёт 15% скидку.
+-СКИДКА ПРИМЕНЯЕТСЯ ТОЛЬКО НЕКОТОРЫМ СОТРУДНИКАМ: 100% скидка. Применяется некоторым сотрудникам. Для оформления вносим ФИ сотрудника и номер телефона. Автоматически срабатывает скидка 100%.
+-СКИДКА ДЛЯ ВСЕХ СОТРУДНИКОВ: 20% скидка. Применяется всем сотрудникам ЭТОПИЦЦА. Скидкой имеет право пользоваться только сам сотрудник. Если заказ оформляется на доставку, оплачивать обязан сам сотрудник. Оформлять заказы для сестры мужа жены зятя НЕЛЬЗЯ! Оформляем скидку как промокод «Скидка работнику 20%», и вписываем имя сотрудника. Скидка на скидку, акцию не действует. Другие изменения в акционных товарах применять нельзя.
+-CКИДКА 7% Клиентам по номеру телефона и ФИ: Эта скидка есть у некоторых людей. Особенность в том, что эта скидка действует на все акции\комбо\промокоды.
+-
+-
+-
+Index: promo_code.py
+===================================================================
+diff --git a/promo_code.py b/promo_code.py
+deleted file mode 100644
+--- a/promo_code.py	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ /dev/null	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
+@@ -1,30 +0,0 @@
+-import telebot
+-from telebot import types
+-bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
+-def choise_inpt(message):
+-    with open('promo_code.txt', 'r', encoding='utf-8') as file:
+-        txt = file.readlines()
+-    if message.text=='Промокоды':
+-        for i in txt:
+-            bot.send_message(message.from_user.id, i.strip())
+-
+-
+-def prm_cd(message):
+-    with open('promo_code.txt', 'r', encoding='utf-8') as file:
+-        txt = file.readlines()
+-    answer=(any(map(lambda x: True if x.strip().upper() in message.text.upper() else False,txt)))
+-    if answer:
+-        bot.send_message(message.from_user.id, f'Промокод  {message.text.upper()[8:]}  действует!')
+-    else:
+-        bot.send_message(message.from_user.id, f'У нас такого промокода нет!')
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+Index: promotion.txt
+===================================================================
+diff --git a/promotion.txt b/promotion.txt
+deleted file mode 100644
+--- a/promotion.txt	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ /dev/null	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
+@@ -1,31 +0,0 @@
+-Акция - день рождение: При любом заказе в подарок пицца 25см. (Салями, Прошутто, Пеперони)
+-Акция - 10 минут в инстаграме: В течение 10 (или любого времени) минут в директе Инстаграма можно будет заказать пиццу королева по акции Х2. (О начале акции сообщают в общем чате).
+-Акция - Супер-цены Притыцкого Если клиент хочет добавить какой-то ингредиент или убрать, то клиент может купить товар по обычной цене.
+-Акция - Бесплатный 5-й напиток: бесплатный 10-й напиток + чизкейк (КОФЕСОБИРАЛКИ).
+-Акция - Скидка на напиток в свою кружку 20%: Скидка действует на чай, кофе и горячие напитки, если клиент берет напиток в свою кружку. Оформление как промокод.
+-Акция 2Х - Действует по понедельникам с 11 до 17. Действует на вынос, зал, доставку и драйв. Акция действует только на пиццы в списке. Акция с акцией не суммируется, из акционных товаров не убираем и не добавляем ингредиенты. Если клиент желает убрать, например грибы из королевы, предлагаем ему взять товар по обычной цене с возможностью убрать ингредиент. Если клиент берет пиццу Королева, 2х идет так же Королева. Прим оформления
+-Купоны - Имеют срок реализации и условия, которые прописаны в чатах.
+-СЕРТИФИКАТЫ - Если клиент превысил сумму сертификата, он должен доплатить. можно оплатить заказ; можно купить на баре; не действует на доставку; не действует на драйв; скидка и сертификат не суммируются; если клиент совершает покупку на сумму больше указанной в сертификате, он доплачивает разницу; см. условия на сертификате; все использованные сертификаты передаются администратору Брестской.
+-РОЗЫГРЫШ в Соц.сетях - Люди утверждают что они выиграли – открываем вкладку, смотрим их имя в таблице – оформляем все по списку.
+-Акция - напиток в подарок (На зал\вынос\драйв)
+-1 л напитка - 1 пицца от 32 см
+-2 л напитка - 2 пиццы от 32 см (можно выдавать по одной бутылке, можно по 2 бутылке)
+-3 л напитка - 3 пиццы от 32 см
+-Доставка
+-1 пицца от 32 см - ничего
+-2 пиццы от 32см - 1 л напитка
+-3 пиццы от 32 см - 1 л напитка
+-4 пиццы от 32 - 2 л напитка (можно по 1 бутылке, можно 2 бутылки)
+-5 пицц от 32 - 2 л напитка
+-6 пицц от 32 см - 3 л напитка (можно по 2 л + 1 л, 1л + 1л + 1л)
+-7 пицц от 32 см - 3 л
+-8 пицц от 32см - 4 л (можно по 2л+2л, 1+1+2, 1+1+1+1)
+-9 пицц от 32 см - 4 л
+-10 пицц от 32 см - 5 л (2+2+1, 2+1+1+1)
+-Фанта, кола (обыч, зеро, ваниль), спрайт, бонаква (газ, негаз), джой (апельсин, яблоко, мультик). Выбираем из этого раздела. Вид джоя прописываем в комментариях. На напиток обязательно клеим наклейку «ПОДАРОК»
+-
+-
+-
+-
+-
+-
+Index: bot_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import telebot\r\nfrom telebot import types  # для указание типов\r\nfrom PIL import Image\r\nimport promo_code as p\r\nbot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')\r\nwith open('promo_code.txt', 'r', encoding='utf-8') as file:\r\n    txt = file.readlines()\r\n\r\n\r\n@bot.message_handler(commands=['start', \"Главное меню Бота\"])\r\ndef start(message):\r\n    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)\r\n    btn1 = types.KeyboardButton(\"Акции #ЭTOPIZZA\")\r\n    btn2 = types.KeyboardButton(\"Скидки #ЭTOPIZZA\")\r\n    btn3 = types.KeyboardButton(\"Промокоды\")\r\n    btn4 = types.KeyboardButton(\"Меню\")\r\n    markup.add(btn1, btn2, btn3, btn4)\r\n    bot.send_message(message.from_user.id, 'Главное меню', reply_markup=markup)\r\n\r\n@bot.message_handler(commands=[\"Меню #ЭTOPIZZA\"])\r\ndef menu(message):\r\n    markup1 = types.ReplyKeyboardMarkup(resize_keyboard=True)\r\n    btn1_1 = types.KeyboardButton(\"Напитки\")\r\n    btn2_1 = types.KeyboardButton(\"Десерты\")\r\n    btn3_1 = types.KeyboardButton(\"Главное меню Бота\")\r\n    markup1.add(btn1_1, btn2_1, btn3_1)\r\n    bot.send_message(message.from_user.id, 'Меню Это пицца', reply_markup=markup1)\r\n\r\n\r\n@bot.message_handler(content_types=['text'])\r\ndef get_text_messages(message):\r\n    if message.text == \"Акции #ЭTOPIZZA\":\r\n        with open('promotion.txt', 'r', encoding='utf-8') as file:\r\n            text=file.readlines()\r\n            for i in text:\r\n                bot.send_message(message.from_user.id, i.strip())\r\n    elif message.text == \"Скидки #ЭTOPIZZA\":\r\n        with open('discount.txt', 'r', encoding='utf-8') as file:\r\n            text=file.readlines()\r\n            for i in text:\r\n                bot.send_message(message.from_user.id, i.strip())\r\n    if message.text == \"Меню #ЭTOPIZZA\":\r\n        menu(message)\r\n    elif message.text == \"Главное меню Бота\":\r\n        start(message)\r\n    elif message.text == \"Промокоды\":\r\n        p.choise_inpt(message)\r\n    elif 'ПРОМОКОД' in message.text.upper():\r\n        p.prm_cd(message)\r\n\r\n\r\n\r\n\r\n\r\nbot.polling(none_stop=True, interval=1)\r\n  #for commit\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bot_main.py b/bot_main.py
+--- a/bot_main.py	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ b/bot_main.py	(date 1672501568055)
+@@ -1,23 +1,26 @@
+ import telebot
+ from telebot import types  # для указание типов
+-from PIL import Image
+-import promo_code as p
+-bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
+-with open('promo_code.txt', 'r', encoding='utf-8') as file:
+-    txt = file.readlines()
+-
++import coupon_promocode_draw_certificate as cpdc
++import promotion as pr
++import discount as d
++import job_description as j
++
++bot = telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
+ 
+-@bot.message_handler(commands=['start', "Главное меню Бота"])
++@bot.message_handler ( commands = ['start', "Главное меню Бота"] )
+ def start(message):
+     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+-    btn1 = types.KeyboardButton("Акции #ЭTOPIZZA")
+-    btn2 = types.KeyboardButton("Скидки #ЭTOPIZZA")
+-    btn3 = types.KeyboardButton("Промокоды")
+-    btn4 = types.KeyboardButton("Меню")
+-    markup.add(btn1, btn2, btn3, btn4)
++    btn1 = types.KeyboardButton("Акции")
++    btn2 = types.KeyboardButton("Скидки")
++    btn3 = types.KeyboardButton("Меню")
++    btn4 = types. KeyboardButton("Информация для персонала")
++    btn5 = types.KeyboardButton("Сертификат, Купон, Розыгрыш, Промокод, Комбо")
++    markup.row(btn1, btn2, btn3)
++    markup.row(btn4)
++    markup.row(btn5)
+     bot.send_message(message.from_user.id, 'Главное меню', reply_markup=markup)
+ 
+-@bot.message_handler(commands=["Меню #ЭTOPIZZA"])
++@bot.message_handler(commands=["Меню"])
+ def menu(message):
+     markup1 = types.ReplyKeyboardMarkup(resize_keyboard=True)
+     btn1_1 = types.KeyboardButton("Напитки")
+@@ -27,26 +30,74 @@
+     bot.send_message(message.from_user.id, 'Меню Это пицца', reply_markup=markup1)
+ 
+ 
++def info_for_staff(message):
++    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
++    btn1 = types.KeyboardButton("Чек-листы")
++    btn2 = types.KeyboardButton("Скрипты")
++    btn3 = types.KeyboardButton("Кассовое оборудование")
++    btn4 = types.KeyboardButton("Должностные обязанности")
++    btn5 = types.KeyboardButton("Отпуска")
++    btn6 = types.KeyboardButton("График")
++    btn7 = types.KeyboardButton("Система оплаты труда")
++    btn8 = types.KeyboardButton("Руководители")
++    btn9 = types.KeyboardButton("Техника безопасности")
++    btn10 = types.KeyboardButton("Принципы пиццерии")
++    btn11 = types.KeyboardButton("Главное меню Бота")
++    markup.row(btn1, btn2, btn3)
++    markup.row(btn4)
++    markup.row(btn5, btn6, btn7)
++    markup.row(btn8, btn9,  btn10)
++    markup.row(btn11)
++    bot.send_message(message.from_user.id, 'Информация для персонала', reply_markup=markup)
++
++def job_descrition(message):
++    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
++    btn1 = types.KeyboardButton("Администратор")
++    btn2 = types.KeyboardButton("Оператор")
++    btn3 = types.KeyboardButton("Бармен")
++    btn4 = types.KeyboardButton("Старший Бармен")
++    btn5 = types.KeyboardButton("Официант")
++    btn7 = types.KeyboardButton("Главное меню Бота")
++    markup.row(btn1, btn2, btn3)
++    markup.row(btn4, btn5)
++    markup.row(btn7)
++    bot.send_message(message.from_user.id, 'Должностные инструкции', reply_markup=markup)
++
++
++
++
++
+ @bot.message_handler(content_types=['text'])
+ def get_text_messages(message):
+-    if message.text == "Акции #ЭTOPIZZA":
+-        with open('promotion.txt', 'r', encoding='utf-8') as file:
+-            text=file.readlines()
+-            for i in text:
+-                bot.send_message(message.from_user.id, i.strip())
+-    elif message.text == "Скидки #ЭTOPIZZA":
+-        with open('discount.txt', 'r', encoding='utf-8') as file:
+-            text=file.readlines()
+-            for i in text:
+-                bot.send_message(message.from_user.id, i.strip())
+-    if message.text == "Меню #ЭTOPIZZA":
++    if message.text == "Акции":
++        pr.promotions(message)
++    elif message.text == "Скидки":
++        d.discount(message)
++    elif message.text == "Сертификат, Купон, Розыгрыш, Промокод, Комбо":
++        cpdc.coupon_promocode_draw_certificate(message)
++    elif message.text == "Меню":
+         menu(message)
+     elif message.text == "Главное меню Бота":
+         start(message)
+-    elif message.text == "Промокоды":
+-        p.choise_inpt(message)
+-    elif 'ПРОМОКОД' in message.text.upper():
+-        p.prm_cd(message)
++    elif message.text == "Информация для персонала":
++        info_for_staff(message)
++    elif message.text == 'Должностные обязанности':
++        job_descrition(message)
++    elif message.text == 'Администратор':
++        j.admin(message)
++    elif message.text == 'Оператор':
++        j.operator(message)
++    elif message.text == 'Бармен':
++        j.barmen(message)
++    elif message.text == 'Старший Бармен':
++        j.main_barmen(message)
++    elif message.text == 'Официант':
++        j.oficiant(message)
++    else:
++        bot.send_message(message.from_user.id, 'Я не знаю как реагировать на это. Смогу ответить когда мне дадут больше информации')
++
++
++
+ 
+ 
+ 
+Index: promotion.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/promotion.py b/promotion.py
+new file mode 100644
+--- /dev/null	(date 1672339064560)
++++ b/promotion.py	(date 1672339064560)
+@@ -0,0 +1,15 @@
++import telebot
++from telebot import types
++from PIL import Image
++bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
++def promotions(message):
++    with Image.open('promotion\Акция день рождение!.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Акция день рождение!*',parse_mode="Markdown")
++    with Image.open('promotion\Акция на 10 минут в инстаграме.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Акция на 10 минут в инстаграме*',parse_mode="Markdown")
++    with Image.open('promotion\Акция напиток в подарок.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Акция напиток в подарок*',parse_mode="Markdown")
++    with Image.open('promotion\Акция Х2.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Акция Х2*',parse_mode="Markdown")
++    with Image.open('promotion\Бесплатный 5-й напиток, бесплатный 10-й напиток + чизкейк (КОФЕСОБИРАЛКИ).jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Бесплатный 5-й напиток, бесплатный 10-й напиток + чизкейк (КОФЕСОБИРАЛКИ)*',parse_mode="Markdown")
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b06328d5-f22b-4d17-bf78-414e56496806\" name=\"Changes\" comment=\"Бот начинается\">\r\n      <change afterPath=\"$PROJECT_DIR$/promo_code.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/promo_code.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bot.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bot_main.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/promotion\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2ISkBpn3HbW5df9vbSx6Xlzk2Er\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/37529/PycharmProjects/TgBot_probnyi&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\37529\\PycharmProjects\\TgBot_probnyi\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"bot.py\" type=\"PythonConfigurationType\" factoryName=\"Python\">\r\n      <module name=\"TgBot_probnyi\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"b06328d5-f22b-4d17-bf78-414e56496806\" name=\"Changes\" comment=\"\" />\r\n      <created>1670182238453</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670182238453</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Пробовал коммитить\">\r\n      <created>1670948431266</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670948431266</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Бот начинается\">\r\n      <created>1671973754330</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671973754330</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Бот начинается\">\r\n      <created>1671974252334</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671974252334</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Бот начинается\">\r\n      <created>1671991195660</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671991195660</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Пробовал коммитить\" />\r\n    <MESSAGE value=\"Бот начинается\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Бот начинается\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/main.py</url>\r\n          <line>8</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 23e413008501487abccc38b4f6ffa25d44a3bfdf)
++++ b/.idea/workspace.xml	(date 1673379391029)
+@@ -1,11 +1,23 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Бот начинается">
+-      <change afterPath="$PROJECT_DIR$/promo_code.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/promo_code.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_main.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/promotion" beforeDir="false" />
++    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Добавил Акции">
++      <change afterPath="$PROJECT_DIR$/ job_description/Бармен.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ job_description/Оператор" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ job_description/Оффициант.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ job_description/Старший бармен.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/coupon_promocode_draw_certificate.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/discount.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/job_description.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/promotion.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/birthday_prom.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/bot_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/discount.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/promo_code.py" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/promo_code.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/promotion.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/черновик" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -31,21 +43,24 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/37529/PycharmProjects/TgBot_probnyi&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "last_opened_file_path": "C:/Users/37529/PycharmProjects/TgBot_probnyi",
++    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\37529\PycharmProjects\TgBot_probnyi" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\37529\PycharmProjects\TgBot_probnyi" />
+     </key>
+   </component>
+   <component name="RunManager">
+-    <configuration name="bot.py" type="PythonConfigurationType" factoryName="Python">
++    <configuration name="bot_main.py" type="PythonConfigurationType" factoryName="Python">
+       <module name="TgBot_probnyi" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -57,7 +72,7 @@
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boy_main.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -104,7 +119,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1671991195660</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Бот начинается">
++      <created>1672247328153</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1672247328153</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+Index: job_description.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/job_description.py b/job_description.py
+new file mode 100644
+--- /dev/null	(date 1672488865570)
++++ b/job_description.py	(date 1672488865570)
+@@ -0,0 +1,24 @@
++import telebot
++from telebot import types
++bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
++
++def admin(message):
++    with open(' job_description\Администратор.txt', 'r', encoding='utf-8') as txt:
++        n= txt.read()
++        bot.send_message(message.from_user.id, n)
++def main_barmen(message):
++    with open(' job_description\Старший бармен.txt', 'r', encoding='utf-8') as txt:
++        n= txt.read()
++        bot.send_message(message.from_user.id, n)
++def barmen(message):
++    with open(' job_description\Бармен.txt', 'r', encoding='utf-8') as txt:
++        n= txt.read()
++        bot.send_message(message.from_user.id, n)
++def operator(message):
++    with open(' job_description\Оператор', 'r', encoding='utf-8') as txt:
++        n= txt.read()
++        bot.send_message(message.from_user.id, n)
++def oficiant(message):
++    with open(' job_description\Оффициант.txt', 'r', encoding='utf-8') as txt:
++        n= txt.read()
++        bot.send_message(message.from_user.id, n)
+\ No newline at end of file
+Index:  job_description/Бармен.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ job_description/Бармен.txt b/ job_description/Бармен.txt
+new file mode 100644
+--- /dev/null	(date 1672487918025)
++++ b/ job_description/Бармен.txt	(date 1672487918025)
+@@ -0,0 +1,28 @@
++ Бармен
++ Требуемые навыки и умения:
++Быть на рабочем месте в 10:30 для подготовки рабочего места.
++- Ответственность, честность, коммуникабельность, опрятность, а также иметь позитивную жизненную позицию.
++- Должен уметь решать конфликтные ситуации (иметь понятие, какой бонус\скидка уместна в данной ситуации), иметь подход к людям.
++- Уметь работать с программой. Верно принимать заказы.
++- Работа с кассой, терминалами, системой ОПЛАТИ. Открытие\закрытие. Устранение ошибок.
++- Знать санитарные правила и нормы. Профилактические мероприятия по Ковид.
++- Знать меню, нововведения, акции, уметь правильно оформлять, знать условия.
++-  Уметь работать с оборудованием на рабочем месте. Термопот (делать чистки по графику в точной пропорции), посудомоечная машина (правило эксплуатации, очистка), кошемашина (делать все виды чисток соблюдая график, верно эксплуатировать), ноутбук (аккуратно пользоваться, не допускать попадания жидкостей\пищи на рабочую поверхность), миксер (соблюдать правило безопасности, использовать по назначению), холодильная камера (соблюдение правила эксплуатации, с своевременной разморозкой, поддержка чистоты), акустическая система (знать правила эксплуатации, настраивать нужную громкость)
++- Знать условия бронирования 2-ого зала и верно оформлять ее.
++- Знать технологию приготовления напитков, коктейлей, десертов. Уметь делать нарезки, соблюдая граммовки.
++
++Обязанности:
++Быть на смене в 10:30, для подготовки рабочего места. (Термопот, кофемашина, экран заказов, подготовленная программа)
++- Принимать, выполнять поручения старшего
++- Обслуживать гостей, принимать заказы, готовить напитки, десерты, выдавать заказы
++- Уборка столов, зала 1 и 2, подушек, диванов
++- Решать конфликты, знать санитарные нормы и правила.
++- Знать меню, уметь посоветовать, продать.
++- Обучать новых сотрудников и делиться знаниями
++- Проводить санитарные дни и часы по графику
++- Осуществлять уборку рабочего места в конце смены. Кофемашина, термопот, барная стойка, холодильник, зал 1 и зал 2, летнюю площадку (в выходные дни или в помощь официанту)
++- Осуществлять проверку зала в течении дня по графикам (влажная уборка, туалет)
++- Сдавать уборку рабочего места старшему
++- Делать заготовки на горячие напитки, нарезки.
++- Контролировать наличие посуды, приборов. По необходимости пользоваться самостоятельно посудомоечной машиной. Натирать посуду вручную (не оставляя разводов, накипи, следов пищи)
++
+Index:  job_description/Старший бармен.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ job_description/Старший бармен.txt b/ job_description/Старший бармен.txt
+new file mode 100644
+--- /dev/null	(date 1672487889825)
++++ b/ job_description/Старший бармен.txt	(date 1672487889825)
+@@ -0,0 +1,29 @@
++Старший бармен
++ Требуемые навыки и умения:
++- Ответственность, честность, коммуникабельность, опрятность, а также иметь позитивную жизненную позицию.
++- Должен уметь решать конфликтные ситуации (иметь понятие, какой бонус\скидка уместна в данной ситуации), иметь подход к людям.
++- Уметь работать с программой. Верно принимать заказы.
++- Работа с кассой, терминалами, системой ОПЛАТИ. Открытие\закрытие. Устранение ошибок.
++- Знать санитарные правила и нормы. Профилактические мероприятия по Ковид.
++- Знать меню, нововведения, акции, уметь правильно оформлять, знать условия.
++-  Уметь работать с оборудованием на рабочем месте. Термопот (делать чистки по графику в точной пропорции), посудомоечная машина (правило эксплуатации, очистка), кошемашина (делать все виды чисток соблюдая график, верно эксплуатировать), ноутбук (аккуратно пользоваться, не допускать попадания жидкостей\пищи на рабочую поверхность), миксер (соблюдать правило безопасности, использовать по назначению), холодильная камера (соблюдение правила эксплуатации, с своевременной разморозкой, поддержка чистоты), акустическая система (знать правила эксплуатации, настраивать нужную громкость)
++- Знать условия бронирования 2-ого зала и верно оформлять ее.
++- Знать технологию приготовления напитков, коктейлей, десертов. Уметь делать нарезки, соблюдая граммовки.
++
++Обязанности:
++Быть на смене в 10:45, для проверки готовности рабочего места.
++- Обслуживать гостей, принимать заказы, готовить напитки, десерты, выдавать заказы
++- Уборка столов, зала 1 и 2, подушек, диванов
++- Открывать и закрывать кассу, терминалы, ОПЛАТИ. верно оформлять кассовые книги, уметь устранять ошибки.
++- Быть ответственным. Руководить рабочим местом. Быть продуктивным, инициативным. В случае высокой загруженности уметь распределить время и работу между коллегами.
++- Решать конфликты, знать санитарные нормы и правила.
++- Знать меню, уметь посоветовать, продать.
++- Обучать новых сотрудников и делиться знаниями
++- Передавать важную информацию администратору (аренда, проверка, касса)
++- Проводить санитарные дни и часы по графику
++- Осуществлять уборку рабочего места в конце смены. Кофемашина, термопот, барная стойка, холодильник, зал 1 и зал 2, летнюю площадку (по необходимости, в помощь бармену и официанту)
++- Контролировать наличие посуды, приборов на барной стойке
++- Осуществлять проверку зала в течении дня по графикам (влажная уборка, туалет)
++- В конце смены проводить проверку на сдачу рабочего места бармена и официанта
++- В конце смены должен провести обход по залам. Проверить закрытие дверей, выключенное оборудование, наличие заготовок и размороженных десертов.
++- Старший бармен имеет право не отпускать бармена и официанта с рабочего места, до того, как он не убедится в полном закрытии, уборке рабочего места.
+Index: coupon_promocode_draw_certificate.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/coupon_promocode_draw_certificate.py b/coupon_promocode_draw_certificate.py
+new file mode 100644
+--- /dev/null	(date 1672478437132)
++++ b/coupon_promocode_draw_certificate.py	(date 1672478437132)
+@@ -0,0 +1,19 @@
++import telebot
++from telebot import types
++from PIL import Image
++bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
++
++def coupon_promocode_draw_certificate(message):
++    with Image.open('coupon_promocode_draw_certificate\Комбо 4 за 6.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Комбо 4 за 6 *',parse_mode="Markdown")
++    with Image.open('coupon_promocode_draw_certificate\Комбо 39.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Комбо 39*',parse_mode="Markdown")
++    with Image.open('coupon_promocode_draw_certificate\Семейное комбо.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Семейное комбо*',parse_mode="Markdown")
++    with Image.open('coupon_promocode_draw_certificate\Сертификаты.png') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Сертификаты*',parse_mode="Markdown")
++    with Image.open('coupon_promocode_draw_certificate\Промокоды.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Промокоды*',parse_mode="Markdown")
++    with Image.open('coupon_promocode_draw_certificate\Розыгрыш.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Розыгрыш*',parse_mode="Markdown")
++
+Index:  job_description/Оператор
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ job_description/Оператор b/ job_description/Оператор
+new file mode 100644
+--- /dev/null	(date 1672488121676)
++++ b/ job_description/Оператор	(date 1672488121676)
+@@ -0,0 +1,27 @@
++Оператор
++Требуемые навыки и умения:
++
++- Ответственность, честность, коммуникабельность, опрятность, а также иметь позитивную жизненную позицию.
++- Принимать, выполнять поручения старшего
++- Должен уметь решать конфликтные ситуации (иметь понятие, какой бонус\скидка уместна в данной ситуации), иметь подход к людям.
++- Уметь работать с программой. Верно принимать заказы.
++- Знать санитарные правила и нормы. Профилактические мероприятия по Ковид.
++- Знать меню, нововведения, акции, уметь правильно оформлять, знать условия.
++-  В случае работы на баре - уметь работать с оборудованием на рабочем месте. Термопот (делать чистки по графику в точной пропорции), посудомоечная машина (правило эксплуатации, очистка), кошемашина (делать все виды чисток соблюдая график, верно эксплуатировать), ноутбук (аккуратно пользоваться, не допускать попадания жидкостей\пищи на рабочую поверхность), миксер (соблюдать правило безопасности, использовать по назначению), холодильная камера (соблюдение правила эксплуатации, с своевременной разморозкой, поддержка чистоты), акустическая система (знать правила эксплуатации, настраивать нужную громкость)
++- Знать условия бронирования 2-ого зала и верно оформлять ее, при оформлении сообщать администратору о броне.
++- Знать технологию приготовления напитков, коктейлей, десертов. Уметь делать нарезки, соблюдая граммовки.
++- Знать город, основные адреса, границы доставки
++- Знать все условия доставки (сумма, платая доставка, акции)
++
++Обязанности:
++Быть на рабочем месте в 10:45 для подготовки рабочего места.
++- Принимать звонки по телефону
++- Принимать заказы и отвечать на комментарии в соц.сетях Вконтакте и Инстаграме
++- Отвечать на отзывы в Яндекс, Гугл, Вовремя
++- Решать конфликтные ситуации за короткое время
++- Содержать порядок и чистоту за рабочим местом
++- При общении с клиентом соблюдать скрипт по дополнительным продажам
++- В случае форс-мажора передать немедленно информацию администратору
++- Соблюдать чек лист
++- Перезванивать клиентам, которые не дозвонились после 10:00; если не дозвонились из-за занятости линии; для уточнения адреса; или если приходится сообщить о задержках курьера.
++- Собирать комплекты на доставку. Вовремя их передавать. Так же делать заявку на содержимое комплектов.
+Index: discount.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/discount.py b/discount.py
+new file mode 100644
+--- /dev/null	(date 1672481332143)
++++ b/discount.py	(date 1672481332143)
+@@ -0,0 +1,20 @@
++import telebot
++from telebot import types
++from PIL import Image
++bot=telebot.TeleBot('5815341263:AAFMT3W01H6vO8-f9nvpxDtVKnSaB6eK2DE')
++
++def discount(message):
++    with Image.open('discount\Скидка в инстаграмме.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка в инстаграмме*',parse_mode="Markdown")
++    with Image.open('discount\Скидка День семьи.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка День семьи*',parse_mode="Markdown")
++    with Image.open('discount\Скидка на заказ от 50 руб, от 100 руб.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка на заказ от 50 руб, от 100 руб*',parse_mode="Markdown")
++    with Image.open('discount\Скидка на напиток в свою кружку 20%.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка на напиток в свою кружку 20%*',parse_mode="Markdown")
++    with Image.open('discount\Скидка 7% клиентам по номеру телефона и ФИ.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка 7% клиентам по номеру телефона и ФИ*',parse_mode="Markdown")
++    with Image.open('discount\Скидки работникам пиццерии.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидки работникам пиццерии*',parse_mode="Markdown")
++    with Image.open('discount\Скидка 100%. Урегулирование конфликтов.jpg') as img:
++        bot.send_photo(message.from_user.id, img, caption='*Скидка 100%. Урегулирование конфликтов*',parse_mode="Markdown")
+Index:  job_description/Оффициант.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ job_description/Оффициант.txt b/ job_description/Оффициант.txt
+new file mode 100644
+--- /dev/null	(date 1672487956493)
++++ b/ job_description/Оффициант.txt	(date 1672487956493)
+@@ -0,0 +1,22 @@
++ Официант
++Требуемые навыки и умения:
++- Ответственность, честность, коммуникабельность, опрятность, а также иметь позитивную жизненную позицию.
++- Должен уметь решать конфликтные ситуации (иметь понятие, какой бонус\скидка уместна в данной ситуации), иметь подход к людям.
++- Уметь работать с программой. Верно принимать заказы.
++- Знать санитарные правила и нормы. Профилактические мероприятия по Ковид.
++- Знать меню, нововведения, акции, уметь правильно оформлять, знать условия.
++-  Уметь работать с оборудованием на рабочем месте. Термопот (делать чистки по графику в точной пропорции), посудомоечная машина (правило эксплуатации, очистка), кошемашина (верно эксплуатировать), ноутбук (аккуратно пользоваться, не допускать попадания жидкостей\пищи на рабочую поверхность), миксер (соблюдать правило безопасности, использовать по назначению), холодильная камера (соблюдение правила эксплуатации, поддержка чистоты)
++- Знать технологию приготовления напитков, коктейлей, десертов. Уметь делать нарезки, соблюдая граммовки.
++
++Обязанности:
++- Порционировать десерты соблюдая граммовки и санитарные нормы
++- Принимать, выполнять поручения старшего
++- Делать заготовки ягод, нарезки фруктов на горячие напитки.
++- Выдавать заказы, сохраняя качество продукта
++- Убирать столы по мере загрязнения, очищать от крошек поверхности диванов и подушек
++- После каждого клиента очищать столики специальным средством и щеткой
++- Сохранять чистоту зала, уборной, летней площадки
++- Закрывать добросовестно смену. (уборка столов, вынос мусора, не оставлять грязную посуду на следующую смену)
++- Осуществлять проверку зала в течении дня по графикам (влажная уборка, туалет)
++- Контролировать наличие посуды, приборов. По необходимости пользоваться самостоятельно посудомоечной машиной. Натирать посуду вручную (не оставляя разводов, накипи, следов пищи)
++

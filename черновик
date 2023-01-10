@@ -1,2 +1,0 @@
-        with Image.open('birthday_prom.jpg') as img:
-            bot.send_photo(message.from_user.id, img)

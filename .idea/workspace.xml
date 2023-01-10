@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Бот начинается">
-      <change afterPath="$PROJECT_DIR$/promo_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promo_code.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion" beforeDir="false" />
+    <list default="true" id="b06328d5-f22b-4d17-bf78-414e56496806" name="Changes" comment="Добавил Акции">
+      <change afterPath="$PROJECT_DIR$/ job_description/Бармен.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ job_description/Оператор" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ job_description/Оффициант.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ job_description/Старший бармен.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coupon_promocode_draw_certificate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discount.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job_description.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/birthday_prom.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discount.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/promo_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/promo_code.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/черновик" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +55,12 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\37529\PycharmProjects\TgBot_probnyi" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\37529\PycharmProjects\TgBot_probnyi" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="bot.py" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="bot_main.py" type="PythonConfigurationType" factoryName="Python">
       <module name="TgBot_probnyi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -57,7 +72,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boy_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -104,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671991195660</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Бот начинается">
+      <created>1672247328153</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672247328153</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
